@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.IOC;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -40,6 +41,8 @@ namespace CleanArch.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("UniversityDBConnection"));
             });
+
+            services.AddMediatR(typeof(Startup));
 
             RegisterServices(services);
         }
