@@ -27,6 +27,8 @@ namespace CleanArch.Application.Services
             var createCourseCommand = new CreateCourseCommand(
                courseViewModel.Name, courseViewModel.Description,courseViewModel.ImageUrl
                );
+
+            _bus.SendCommand(createCourseCommand);
         }
 
         public CourseViewModel GetCourses ()
